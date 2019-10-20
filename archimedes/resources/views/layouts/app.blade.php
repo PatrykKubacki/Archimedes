@@ -13,12 +13,12 @@
     header {
       margin-bottom:15px; 
     }
-    /* .navbar-nav {
-         flex-direction: row;
-    } */
     .nav-item {
         margin-right:10px;
     }
+    /* main{
+        height:95%;
+    } */
     </style>
   </head>
   <body>
@@ -50,7 +50,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        Wyloguj
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -65,9 +65,7 @@
 
     <main role="main">
         <div  class="container">
-            <div class="row">
                 @yield('content')
-            </div>
         </div>
     </main> 
 
