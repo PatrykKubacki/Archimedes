@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row">
+    <h1>Dodawanie notki
+    </h1>
+</div>
 <div class="col">
-<form action="ds" method="POST">
+<form action="{{ route('notes.store') }}" method="POST">
     @include('note.fields')
-
     <div class="form-group row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             <button type="submit" class="btn btn-primary">Dodaj notkę</button>
         </div>
         <div class="col-sm-9">

@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-footer text-muted">
                 Autor: {{$note->user->name}}<br/>
-                Utworzono: {{$note->created_at->format('Y-m-d')}}<br/>
+                Utworzono: {{$note->created_at ? $note->created_at->format('Y-m-d') : ''}}<br/>
                 Ostatnia modyfikacja: {{$note->modified_at ?? 'nie modyfikowano'}}
                 </div>
             </div>

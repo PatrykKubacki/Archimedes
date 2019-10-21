@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Note;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NoteController extends Controller
 {
@@ -18,6 +20,13 @@ class NoteController extends Controller
 
     public function store(Request $request)
     {
+        Note::create([
+            'title' => request('title'),
+            'content' => request('content'),
+            'user_id' => auth()->id(),
+            'updated_at' => null,
+        ]);
+        
         return redirect()->action('HomeController@index');
     }
 
