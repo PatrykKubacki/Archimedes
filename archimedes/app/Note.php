@@ -10,6 +10,7 @@ class Note extends Model
         'title',
         'content',
         'user_id',
+        'updated_at',
     ];
     public function user()
     {

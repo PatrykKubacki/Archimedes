@@ -21,12 +21,32 @@ class NoteController extends Controller
     public function store(Request $request)
     {
         Note::create([
+            'user_id' => auth()->id(),
             'title' => request('title'),
             'content' => request('content'),
-            'user_id' => auth()->id(),
             'updated_at' => null,
         ]);
         
+        return redirect()->action('HomeController@index');
+    }
+
+    public function edit(Note $note)
+    {
+        return view('note.edit')
+            ->with('note', $note);;
+    }
+
+    public function update(Request $request, Note $note)
+    {
+        $note->fill($request->input());
+        $note->updated_at = date("Y-m-d H:i:s");
+        $note->save();
+        return redirect()->action('HomeController@index');
+    }
+
+    public function destroy(Note $note)
+    {
+        $note->delete();
         return redirect()->action('HomeController@index');
     }
 
