@@ -16,9 +16,6 @@
     .nav-item {
         margin-right:10px;
     }
-    /* main{
-        height:95%;
-    } */
     </style>
   </head>
   <body>
@@ -32,6 +29,11 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.index') }}">Zarządzaj użytkownikami</a>
+                        </li>
+                    @endauth
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">Zaloguj się</a>

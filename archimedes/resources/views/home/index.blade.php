@@ -4,11 +4,11 @@
 <h1>Witaj w Archimedes - CMS</h1>
     @isset($notes)
     <div class="row">
-    <div class="col-lg-4">
-        <h2>Ilość notatek: {{ count($notes) }}</h2>
+    <div class="col-lg-5">
+        <h2>Ilość wszystkich notatek: {{$count}}</h2>
         </div>
         @auth
-        <div class="col-lg-2 offset-lg-6">
+        <div class="col-lg-2 offset-lg-5">
         <a class="btn btn-primary" href="{{ route('notes.create') }}" role="button">Dodaj Notatkę</a>
         </div>
         @endauth 
@@ -43,4 +43,5 @@
     @empty($notes)
     <div>nic tu nie ma</div>
     @endempty
+    {{ $notes->links() }}
 @endsection

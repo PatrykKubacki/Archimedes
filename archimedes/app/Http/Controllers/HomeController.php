@@ -24,8 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $notes = Note::all();
-        return view('home.index')->with('notes', $notes);
+        $notes = Note::paginate(2);
+        $count = count(Note::all());
+        return view('home.index')
+            ->with('notes', $notes)
+            ->with('count',$count);
     }
     
 }
